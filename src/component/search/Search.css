@@ -1,0 +1,24 @@
+.card-search {
+  background-color: white;
+  border: 1px solid;
+  box-shadow: 3px 6px #888;
+  padding: 30px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-search {
+  margin-left: 20px !important;
+  margin-top: 10px !important;
+}
+
+.search {
+  padding: 5px 10px;
+  background: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
+}
