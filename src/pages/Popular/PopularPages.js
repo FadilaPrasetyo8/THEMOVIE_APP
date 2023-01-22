@@ -6,13 +6,18 @@ import "./PopularPages.css";
 
 export const PopularPages = () => {
   const [popular, setPopular] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    Api().then((result) => {
-      // console.log(result.data.results);
-      setPopular(result.data.results);
-    });
-  }, []);
+    if (!loading) {
+      setTimeout(() => {
+        Api().then((result) => {
+          setPopular(result.data.results);
+          setLoading(false);
+        });
+      }, 2000);
+    }
+  }, [loading]);
 
   const MovieList = () => {
     return popular.map((p) => <Popular data={p} key={p.id} />);
