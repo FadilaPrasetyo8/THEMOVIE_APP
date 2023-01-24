@@ -13,3 +13,10 @@ export const SearchApi = async (q) => {
   );
   return searchMovie.data;
 };
+
+export const GetDetailMovie = async (id) => {
+  const getDetail = await axios.get(`
+  ${process.env.REACT_APP_BASEURL}/movie/${id}?api_key=${process.env.REACT_APP_APIKEY}
+  `);
+  return getDetail.data;
+};

@@ -9,6 +9,7 @@ export const PopularPages = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     if (!loading) {
       setTimeout(() => {
         Api().then((result) => {
@@ -17,10 +18,14 @@ export const PopularPages = () => {
         });
       }, 2000);
     }
-  }, [loading]);
+  }, []);
 
   const MovieList = () => {
-    return popular.map((p) => <Popular data={p} key={p.id} />);
+    return loading ? (
+      <p style={{ color: "#fff" }}>Loading...</p>
+    ) : (
+      popular.map((p) => <Popular data={p} key={p.id} />)
+    );
   };
 
   return (

@@ -10,15 +10,10 @@ export const SearchList = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!loading) {
-      setTimeout(() => {
-        Api().then((result) => {
-          setMovie(result.data.results);
-          setLoading(false);
-        });
-      }, 2000);
-    }
-  }, [loading]);
+    Api().then((result) => {
+      setMovie(result.data.results);
+    });
+  }, []);
 
   const MovieList = () => {
     return movie.map((p) => <Popular data={p} key={p.id} />);
@@ -26,8 +21,12 @@ export const SearchList = () => {
 
   const search = async (q) => {
     if (q.length > 3) {
+      setLoading(true);
       const query = await SearchApi(q);
-      setMovie(query.results);
+      setTimeout(() => {
+        setMovie(query.results);
+        setLoading(false);
+      }, 2000);
     }
   };
 
@@ -45,7 +44,7 @@ export const SearchList = () => {
         />
       </div>
       <div className="container">
-        <MovieList />
+        {loading ? <p style={{ color: "#fff" }}>Loading...</p> : <MovieList />}
       </div>
     </>
   );

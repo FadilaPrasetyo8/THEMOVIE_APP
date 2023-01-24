@@ -1,5 +1,10 @@
 body {
   background-color: rgb(37, 36, 36);
+  color: white;
 
   /* background-color: rgb(243, 243, 243); */
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
