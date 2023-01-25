@@ -32,6 +32,7 @@ export const DetailPages = () => {
           </div>
           <div className="col-7">
             <h4>{movie.original_title}</h4>
+            <p style={{ fontStyle: "italic" }}>"{movie.tagline}"</p>
             <p style={{ fontSize: 12, color: "#f4f4f4" }}>{movie.release_date}</p>
             <div>
               <h5 className="d-block mt-3">Genres </h5>
@@ -39,11 +40,11 @@ export const DetailPages = () => {
               <p className="mt-2">Rate: ⭐ {movie.vote_average}</p>
             </div>
             <div>
-              <div className="fw-bold fs-4">Overview</div>
+              <h5>Overview</h5>
               <p className="mt-1"> {movie.overview}</p>
             </div>
             <div className="production">
-              <div className="fw-bold fs-4">Production Companies</div>
+              <h5>Production Companies</h5>
               <div className="d-flex">
                 {movie.production_companies?.map((p) => (
                   <div key={p.id}>

@@ -1,7 +1,8 @@
-import "./Popular.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import "./TopRated.css";
 
-export const Popular = ({ data }) => {
+export const TopRated = ({ data }) => {
   return (
     <div className="mycard">
       <Link to={"/movie/" + data.id}>

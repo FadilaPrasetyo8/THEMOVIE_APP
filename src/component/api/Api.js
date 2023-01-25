@@ -20,3 +20,10 @@ export const GetDetailMovie = async (id) => {
   `);
   return getDetail.data;
 };
+
+export const MovieTopRated = async () => {
+  const rated = await axios.get(
+    `${process.env.REACT_APP_BASEURL}/movie/top_rated?pages=1&api_key=${process.env.REACT_APP_APIKEY}`
+  );
+  return rated.data;
+};

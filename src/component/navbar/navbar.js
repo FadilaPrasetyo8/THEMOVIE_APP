@@ -12,6 +12,9 @@ export const Navbar = () => {
         <li>
           <Link to="/popular">Search</Link>
         </li>
+        <li>
+          <Link to="/top-rated">Top Rated</Link>
+        </li>
       </ul>
     </div>
   );
